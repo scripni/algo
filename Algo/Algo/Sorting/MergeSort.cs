@@ -5,14 +5,14 @@ namespace Algo.Sorting
 	/// <summary>
 	/// Merge sort.
 	/// </summary>
-	public class MergeSort : Sorter
+	public class MergeSort<T> : Sorter<T> where T : IComparable<T>
 	{
 		/// <summary>
 		/// Sorts an input array using merge sort.
 		/// </summary>
 		/// <param name="input">The input array.</param>
 		/// <returns>A sorted array containing the input elements.</returns>
-		public override int[] Sort(int[] input)
+		public override T[] Sort(T[] input)
 		{
 			if (input == null)
 			{
@@ -29,7 +29,7 @@ namespace Algo.Sorting
 		/// </summary>
 		/// <param name="input">The input array.</param>
 		/// <returns>Returns the number of inversions in the array.</returns>
-		public int CountInversions(int[] input)
+		public int CountInversions(T[] input)
 		{
 			if (input == null)
 			{
@@ -47,27 +47,28 @@ namespace Algo.Sorting
 		/// Sorts an input array using merge sort and counts the number of inversions in the array.
 		/// </summary>
 		/// <param name="input">The input array.</param>
-		/// <param name="mutationCount">On return, incremented by the number of inversions in the array.</param>
+		/// <param name="inversionCount">On return, incremented by the number of inversions in the array.</param>
 		/// <returns>A sorted array containing all input elements.</returns>
-		private int[] SortAndCountInternal(int[] input, ref int mutationCount)
+		private T[] SortAndCountInternal(T[] input, ref int inversionCount)
 		{
 			if (input.Length == 1)
 			{
 				return input;
 			}
 
+			// divide
 			int middle = input.Length / 2;
-			int[] left = new int[middle];
+			T[] left = new T[middle];
 			Array.Copy(input, left, middle);
-			int[] right = new int[input.Length - middle];
+			T[] right = new T[input.Length - middle];
 			Array.Copy(input, middle, right, 0, input.Length - middle);
 
-			// divide
-			left = SortAndCountInternal(left, ref mutationCount);
-			right = SortAndCountInternal(right, ref mutationCount);
-
 			// conquer
-			return Merge(left, right, ref mutationCount);
+			left = SortAndCountInternal(left, ref inversionCount);
+			right = SortAndCountInternal(right, ref inversionCount);
+
+			// combine
+			return Merge(left, right, ref inversionCount);
 		}
 
 
@@ -78,15 +79,15 @@ namespace Algo.Sorting
 		/// <param name="right">Second array.</param>
 		/// <param name="inversionCount">On return, incremented by the number of inversions counted while merging.</param>
 		/// <returns>The sorted array.</returns>
-		private int[] Merge(int[] left, int[] right, ref int inversionCount)
+		private T[] Merge(T[] left, T[] right, ref int inversionCount)
 		{
-			int[] merged = new int[left.Length + right.Length];
+			T[] merged = new T[left.Length + right.Length];
 
 			int i = 0, j = 0, k = 0;
 
 			while (k < merged.Length)
 			{
-				if (j >= right.Length || (i < left.Length && left[i] <= right[j]))
+				if (j >= right.Length || (i < left.Length && left[i].CompareTo(right[j]) <= 0))
 				{
 					merged[k++] = left[i++];
 				}

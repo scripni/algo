@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Algo.Tests.Sorting
 {
 	[TestClass]
-	public abstract class SorterTests<T> where T : Sorter, new()
+	public abstract class SorterTests<T> where T : Sorter<int>, new()
 	{
 		[TestMethod]
 		public void Sort_ValidInput_ReturnsExpected()

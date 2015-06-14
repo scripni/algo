@@ -93,5 +93,10 @@ namespace Algo.Geometry
 		{
 			return X == other.X && Y == other.Y;
 		}
+
+		public override int GetHashCode()
+		{
+			return X.GetHashCode() ^ Y.GetHashCode();
+		}
 	}
 }
