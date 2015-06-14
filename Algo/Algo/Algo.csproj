@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Geometry\ClosestPair.cs" />
+    <Compile Include="Geometry\PlaneCoordinate.cs" />
     <Compile Include="MatrixOperations\SquareEvenMatrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sorting\MergeSort.cs" />

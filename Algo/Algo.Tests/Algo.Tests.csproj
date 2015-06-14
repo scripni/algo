@@ -50,6 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Geometry\ClosestPairTests.cs" />
+    <Compile Include="Geometry\PlaneCoordinateTests.cs" />
     <Compile Include="MatrixOperations\MatrixMultiplicationTests.cs" />
     <Compile Include="MatrixOperations\SquareEvenMatrixTests.cs" />
     <Compile Include="MatrixOperations\StrassenMatrixMultiplicationTests.cs" />
