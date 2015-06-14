@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Algo.Tests.MatrixOperations
 {
 	[TestClass]
-	public class StrassenMatrixMultiplicationTests
+	public class MatrixMultiplicationTests
 	{
 		[TestMethod]
 		public void Multiply_FourByFour_ReturnsExpectedValue()
@@ -55,7 +55,7 @@ namespace Algo.Tests.MatrixOperations
 				});
 
 			// act
-			SquareEvenMatrix actual = SquareEvenMatrix.StrassenMatrixMultiplication(a, b);
+			SquareEvenMatrix actual = SquareEvenMatrix.StandardRecursiveMultiplication(a, b);
 
 			// assert
 			Assert.AreEqual(expected, actual);
@@ -70,7 +70,7 @@ namespace Algo.Tests.MatrixOperations
 			SquareEvenMatrix b = new SquareEvenMatrix(new int[,] { { 3 } });
 
 			// act
-			SquareEvenMatrix c = SquareEvenMatrix.StrassenMatrixMultiplication(a, b);
+			SquareEvenMatrix c = SquareEvenMatrix.StandardRecursiveMultiplication(a, b);
 
 			// assert
 			Assert.AreEqual(6, c[0, 0], "Multiplication should produce expected result.");
@@ -94,7 +94,7 @@ namespace Algo.Tests.MatrixOperations
 				});
 
 			// act
-			SquareEvenMatrix actual = SquareEvenMatrix.StrassenMatrixMultiplication(a, b);
+			SquareEvenMatrix actual = SquareEvenMatrix.StandardRecursiveMultiplication(a, b);
 
 			// assert
 			Assert.AreEqual(2 * 3 + 3 * 5, actual[0, 0], "Multiplication should produce expected result.");
