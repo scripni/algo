@@ -14,6 +14,11 @@ namespace Algo.Sorting
 		/// <returns>A sorted array containing the input elements.</returns>
 		public override int[] Sort(int[] input)
 		{
+			if (input == null)
+			{
+				throw new ArgumentNullException("input");
+			}
+
 			int _ = 0;
 			return SortAndCountInternal(input, ref _);
 		}
@@ -26,6 +31,11 @@ namespace Algo.Sorting
 		/// <returns>Returns the number of inversions in the array.</returns>
 		public int CountInversions(int[] input)
 		{
+			if (input == null)
+			{
+				throw new ArgumentNullException("input");
+			}
+
 			int inversions = 0;
 			SortAndCountInternal(input, ref inversions);
 
@@ -46,16 +56,17 @@ namespace Algo.Sorting
 				return input;
 			}
 
-			int middle = input.Length / 2;		// 2
-			int[] left = new int[middle];		// [0, 0]
-			Array.Copy(input, left, middle);	// [1, 2]
+			int middle = input.Length / 2;
+			int[] left = new int[middle];
+			Array.Copy(input, left, middle);
+			int[] right = new int[input.Length - middle];
+			Array.Copy(input, middle, right, 0, input.Length - middle);
 
-			int[] right = new int[input.Length - middle];				// [0, 0, 0]
-			Array.Copy(input, middle, right, 0, input.Length - middle);	// [3, 2, 1]
-
-			left = SortAndCountInternal(left, ref mutationCount);		//
+			// divide
+			left = SortAndCountInternal(left, ref mutationCount);
 			right = SortAndCountInternal(right, ref mutationCount);
 
+			// conquer
 			return Merge(left, right, ref mutationCount);
 		}
 
