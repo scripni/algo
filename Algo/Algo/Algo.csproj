@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Expressions\ExpressionParser.cs" />
     <Compile Include="Heaps\MaxHeap.cs" />
     <Compile Include="Interviews\Top100Numbers.cs" />
     <Compile Include="Sorting\HeapSort.cs" />

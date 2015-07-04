@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Expressions\ExpressionEvaluatorTests.cs" />
     <Compile Include="Geometry\ClosestPairTests.cs" />
     <Compile Include="Geometry\PlaneCoordinateTests.cs" />
     <Compile Include="Heap\MaxHeapTests.cs" />
