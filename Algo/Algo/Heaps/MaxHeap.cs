@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algo.Heaps
 {
@@ -19,6 +15,7 @@ namespace Algo.Heaps
         public MaxHeap(int[] initial)
         {
             m_data = initial;
+            m_tail = initial.Length - 1;
             for (int i = m_data.Length / 2 + 1; i >= 0; i--)
             {
                 MaxHeapify(i);

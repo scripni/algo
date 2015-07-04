@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Heaps\MaxHeap.cs" />
     <Compile Include="Interviews\Top100Numbers.cs" />
+    <Compile Include="Sorting\HeapSort.cs" />
     <Compile Include="TopCoder\Easy\Aaagmnrs.cs" />
     <Compile Include="Geometry\ClosestPair.cs" />
     <Compile Include="Geometry\PlaneCoordinate.cs" />
