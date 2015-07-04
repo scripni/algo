@@ -1,4 +1,6 @@
-﻿namespace Algo.MathOps
+﻿using System;
+
+namespace Algo.MathOps
 {
     public class MathOperations
     {
@@ -17,6 +19,19 @@
             result.Remainder = a;
 
             return result;
+        }
+
+
+        public double SquareRoot(double a, double e)
+        {
+            double x = a / 2;
+
+            while (Math.Abs(x * x - a) >= e)
+            {
+                x = (x + a / x) / 2;
+            }
+
+            return x;
         }
     }
 

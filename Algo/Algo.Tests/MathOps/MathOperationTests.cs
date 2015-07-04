@@ -30,7 +30,6 @@ namespace Algo.Tests.MathOps
             Assert.AreEqual(expected.Remainder, actual.Remainder);
         }
 
-
         [TestMethod]
         public void DivideNoOperator_RandomSamples_ReturnsValue()
         {
@@ -51,6 +50,42 @@ namespace Algo.Tests.MathOps
                 // assert
                 Assert.AreEqual(expected.Remainder, actual.Remainder);
                 Assert.AreEqual(expected.Divisor, actual.Divisor);
+            }
+        }
+
+        [TestMethod]
+        public void SquareRoot_ValidValues_ReturnsExpected()
+        {
+            // arrange
+            double a = 100;
+            MathOperations m = new MathOperations();
+            double expected = 10;
+            double error = 0.1;
+
+            // act
+            double actual = m.SquareRoot(a, error);
+
+            // assert
+            Assert.IsTrue(Math.Abs(actual * actual - expected * expected) < error);
+        }
+
+        [TestMethod]
+        public void SquareRoot_RandomSamples_ReturnsValue()
+        {
+            Random r = new Random(1234);
+            for (int i = 0; i < 100000; i++)
+            {
+                // arrange
+                double a = r.NextDouble() * (i % 10);
+                MathOperations m = new MathOperations();
+                double expected = Math.Sqrt(a);
+                double error = 0.001;
+
+                // act
+                double actual = m.SquareRoot(a, error);
+
+                // assert
+                Assert.IsTrue(Math.Abs(actual * actual - expected * expected) < error);
             }
         }
     }
