@@ -66,6 +66,7 @@
     <Compile Include="Sorting\MergeSortTests.cs" />
     <Compile Include="Sorting\QuickSortTests.cs" />
     <Compile Include="Sorting\SorterTests.cs" />
+    <Compile Include="Strings\PalindromeTests.cs" />
     <Compile Include="TopCoder\Easy\AaagmnrsTests.cs" />
   </ItemGroup>
   <ItemGroup>
