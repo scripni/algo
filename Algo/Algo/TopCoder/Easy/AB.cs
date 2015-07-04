@@ -47,7 +47,7 @@ namespace Algo.TopCoder.Easy
 {
     public class AB
     {
-        public string createString(int n, int k)
+        public string CreateString(int n, int k)
         {
             int numA = n / 2;
             int numB = n - numA;
