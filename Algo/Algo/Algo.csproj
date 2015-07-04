@@ -44,6 +44,9 @@
     <Compile Include="Expressions\ExpressionParser.cs" />
     <Compile Include="Heaps\MaxHeap.cs" />
     <Compile Include="Interviews\Top100Numbers.cs" />
+    <Compile Include="MathOps\MathOperations.cs" />
+    <Compile Include="Sets\Permutations.cs" />
+    <Compile Include="Sets\PhoneDigits.cs" />
     <Compile Include="Sorting\HeapSort.cs" />
     <Compile Include="TopCoder\Easy\Aaagmnrs.cs" />
     <Compile Include="Geometry\ClosestPair.cs" />

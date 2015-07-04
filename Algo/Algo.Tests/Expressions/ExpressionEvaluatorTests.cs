@@ -21,6 +21,20 @@ namespace Algo.Tests.Expressions
         }
 
         [TestMethod]
+        public void Prefix_ShortValidExpression_CorrectResult()
+        {
+            // arrange
+            string input = "+*123";
+            ExpressionParser parser = new ExpressionParser();
+
+            // act
+            int result = parser.Prefix(input);
+
+            // assert
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
         public void Postfix_ValidExpression_CorrectResult()
         {
             // arrange
@@ -32,6 +46,21 @@ namespace Algo.Tests.Expressions
 
             // assert
             Assert.AreEqual(17, result);
+        }
+
+        [TestMethod]
+        public void ToPostfix_ValidExpression_CorrectResult()
+        {
+            // arrange
+            string input = "2*3+5*4-9";
+            string expected = "23*54*+9-";
+            ExpressionParser parser = new ExpressionParser();
+
+            // act
+            string actual = parser.ToPostfix(input);
+
+            // assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
