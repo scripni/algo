@@ -17,14 +17,17 @@ namespace Algo.Tests.MathOps
             // arrange
             int a = 10;
             int b = 2;
-            int expected = 5;
+            DivisionResult expected = new DivisionResult();
+            expected.Divisor = a / b;
+            expected.Remainder = a % b;
             MathOperations m = new MathOperations();
 
             // act
-            int actual = m.DivideNoOperand(a, b);
+            DivisionResult actual = m.DivideNoOperand(a, b);
 
             // assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Divisor, actual.Divisor);
+            Assert.AreEqual(expected.Remainder, actual.Remainder);
         }
 
 
@@ -37,14 +40,17 @@ namespace Algo.Tests.MathOps
                 // arrange
                 int a = r.Next(10000);
                 int b = r.Next(1, 100);
-                int expected = a / b;
+                DivisionResult expected = new DivisionResult();
+                expected.Divisor = a / b;
+                expected.Remainder = a % b;
                 MathOperations m = new MathOperations();
 
                 // act
-                int actual = m.DivideNoOperand(a, b);
+                DivisionResult actual = m.DivideNoOperand(a, b);
 
                 // assert
-                Assert.AreEqual(expected, actual);
+                Assert.AreEqual(expected.Remainder, actual.Remainder);
+                Assert.AreEqual(expected.Divisor, actual.Divisor);
             }
         }
     }

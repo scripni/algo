@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algo.MathOps
+﻿namespace Algo.MathOps
 {
     public class MathOperations
     {
-        public int DivideNoOperand(int a, int b)
+        public DivisionResult DivideNoOperand(int a, int b)
         {
             // a / b
             int r = 0;
@@ -18,7 +12,18 @@ namespace Algo.MathOps
                 a -= b;
             }
 
-            return r;
+            DivisionResult result = new DivisionResult();
+            result.Divisor = r;
+            result.Remainder = a;
+
+            return result;
         }
     }
+
+    public struct DivisionResult
+    {
+        public int Divisor;
+        public int Remainder;
+    }
+
 }
