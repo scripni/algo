@@ -70,8 +70,10 @@
     <Compile Include="Sorting\MergeSortTests.cs" />
     <Compile Include="Sorting\QuickSortTests.cs" />
     <Compile Include="Sorting\SorterTests.cs" />
+    <Compile Include="Strings\DecodeWaysTests.cs" />
     <Compile Include="Strings\PalindromeTests.cs" />
     <Compile Include="Strings\PoorMansRegexTests.cs" />
+    <Compile Include="Strings\StringComparisonTests.cs" />
     <Compile Include="Strings\StringManipulationTests.cs" />
     <Compile Include="TopCoder\Easy\AaagmnrsTests.cs" />
     <Compile Include="Trees\InOrderEnumeratorTests.cs" />

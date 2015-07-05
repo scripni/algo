@@ -54,8 +54,10 @@
     <Compile Include="Sets\Permutations.cs" />
     <Compile Include="Sets\PhoneDigits.cs" />
     <Compile Include="Sorting\HeapSort.cs" />
+    <Compile Include="Strings\DecodeWays.cs" />
     <Compile Include="Strings\Palindrome.cs" />
     <Compile Include="Strings\PoorMansRegex.cs" />
+    <Compile Include="Strings\StringComparison.cs" />
     <Compile Include="Strings\StringManipulation.cs" />
     <Compile Include="TopCoder\Easy\Aaagmnrs.cs" />
     <Compile Include="Geometry\ClosestPair.cs" />
