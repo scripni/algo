@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Arrays\ArrayOperations.cs" />
     <Compile Include="Expressions\ExpressionParser.cs" />
+    <Compile Include="Graphs\GraphNavigator.cs" />
+    <Compile Include="Graphs\GraphNode.cs" />
     <Compile Include="Graphs\GraphSolver.cs" />
     <Compile Include="Heaps\MaxHeap.cs" />
     <Compile Include="Interviews\Top100Numbers.cs" />

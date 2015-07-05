@@ -54,6 +54,7 @@
     <Compile Include="Expressions\ExpressionEvaluatorTests.cs" />
     <Compile Include="Geometry\ClosestPairTests.cs" />
     <Compile Include="Geometry\PlaneCoordinateTests.cs" />
+    <Compile Include="Graphs\GraphNavigatorTests.cs" />
     <Compile Include="Graphs\GraphSolverTests.cs" />
     <Compile Include="Heap\MaxHeapTests.cs" />
     <Compile Include="Lists\ListOperationTests.cs" />
