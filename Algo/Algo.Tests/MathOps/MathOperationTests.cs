@@ -139,5 +139,39 @@ namespace Algo.Tests.MathOps
             // assert
             Assert.IsTrue(expected.SequenceEqual(actual));
         }
+
+
+        [TestMethod]
+        public void MultiplyBigNumbers_TwoNumbers_ReturnsValue()
+        {
+            // arrange
+            int[] a = { 1, 7 };
+            int[] b = { 3, 4 };
+            int[] expected = { 0, 5, 7, 8, };
+            MathOperations m = new MathOperations();
+
+            // act
+            int[] actual = m.Multiply(a, b);
+
+            // assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
+
+
+        [TestMethod]
+        public void MultiplyBigNumbers_TwoNumbersLarge_ReturnsValue()
+        {
+            // arrange
+            int[] a = { 9, 9, };
+            int[] b = { 9, 8, };
+            int[] expected = { 9, 7, 0, 2, };
+            MathOperations m = new MathOperations();
+
+            // act
+            int[] actual = m.Multiply(a, b);
+
+            // assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
     }
 }

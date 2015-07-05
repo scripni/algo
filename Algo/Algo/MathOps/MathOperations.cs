@@ -43,30 +43,74 @@ namespace Algo.MathOps
                 Array.Copy(b, 0, t, t.Length - b.Length, b.Length);
                 b = t;
             }
-            else if (a.Length < b.Length)
+
+            if (a.Length < b.Length)
             {
                 int[] t = new int[b.Length];
                 Array.Copy(a, 0, t, t.Length - a.Length, a.Length);
                 a = t;
             }
 
-            int carry = 0;
             int[] result = new int[a.Length + 1];
 
             for (int i = a.Length - 1; i >= 0; i--)
             {
-                result[i + 1] = a[i] + b[i] + carry;
-                carry = result[i + 1] / 10;
-                result[i + 1] %= 10;
+                result[i + 1] = a[i] + b[i];
             }
 
-            result[0] = carry;
+            for (int i = result.Length - 1; i > 0; i--)
+            {
+                if (result[i] > 9)
+                {
+                    result[i - 1] += result[i] / 10;
+                    result[i] %= 10;
+                }
+            }
+
             return result;
         }
 
-        public int[] MultiplyBigNumbers(int[] a, int[] b)
+        public int[] Multiply(int[] a, int[] b)
         {
-            throw new NotImplementedException();
+            if (a.Length > b.Length)
+            {
+                int[] t = new int[a.Length];
+                Array.Copy(b, 0, t, a.Length - b.Length, b.Length);
+                b = t;
+            }
+
+            if (b.Length > a.Length)
+            {
+                int[] t = new int[b.Length];
+                Array.Copy(a, 0, t, b.Length - a.Length, a.Length);
+                a = t;
+            }
+
+            int[] result = new int[a.Length * 2];
+            int resultIndex = 0;
+            for (int i = a.Length - 1; i >= 0; i--)
+            {
+                for (int j = b.Length - 1; j >= 0; j--)
+                {
+                    int aOffset = a.Length - 1 - i;
+                    int bOffset = b.Length - 1 - j;
+                    resultIndex = a.Length * 2 - 1 - aOffset - bOffset;
+
+                    int x = a[i] * b[j];
+                    result[resultIndex] += x;
+                }
+            }
+
+            for (int i = result.Length - 1; i > 0; i--)
+            {
+                if (result[i] > 9)
+                {
+                    result[i - 1] += result[i] / 10;
+                    result[i] %= 10;
+                }
+            }
+
+            return result;
         }
     }
 

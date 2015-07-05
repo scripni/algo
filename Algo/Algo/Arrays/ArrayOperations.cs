@@ -27,5 +27,32 @@ namespace Algo.Arrays
 
             return null;
         }
+        public void SortByCategory(int[] a)
+        {
+            int head = 0, tail = a.Length - 1, current = 0;
+            while (current < tail)
+            {
+                int t = a[current];
+                switch (Category(a[current]))
+                {
+                    case 0:
+                        a[current] = a[head];
+                        a[head++] = t;
+                        break;
+                    case 1:
+                        current++;
+                        break;
+                    case 2:
+                        a[current] = a[tail];
+                        a[tail--] = t;
+                        break;
+                }
+            }
+        }
+
+        private int Category(int x)
+        {
+            return x % 3;
+        }
     }
 }

@@ -55,5 +55,30 @@ namespace Algo.Tests.Arrays
             // assert
             Assert.IsTrue(expected.SequenceEqual(actual));
         }
+
+
+        [TestMethod]
+        public void SortByCategory_ValidArray_ReturnsValue()
+        {
+            // arrange
+            int[] a = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            ArrayOperations ops = new ArrayOperations();
+
+            // act
+            ops.SortByCategory(a);
+
+            // assert
+            int c = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                int x = a[i];
+                if (a[i] % 3 != c)
+                {
+                    c++;
+                }
+            }
+
+            Assert.AreEqual(2, c);
+        }
     }
 }
