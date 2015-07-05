@@ -54,6 +54,7 @@
     <Compile Include="Geometry\ClosestPairTests.cs" />
     <Compile Include="Geometry\PlaneCoordinateTests.cs" />
     <Compile Include="Heap\MaxHeapTests.cs" />
+    <Compile Include="Lists\ListOperationTests.cs" />
     <Compile Include="MathOps\FibbonacciTests.cs" />
     <Compile Include="MathOps\MathOperationTests.cs" />
     <Compile Include="MatrixOperations\MatrixMultiplicationTests.cs" />
