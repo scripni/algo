@@ -192,5 +192,46 @@ namespace Algo.Tests.Trees
             // assert
             Assert.IsFalse(traversal.SameFringe(a, b));
         }
+
+
+        [TestMethod]
+        public void AllRootToLeafPaths_ValidTree_CorrectSequence()
+        {
+            // arrange
+            BinaryTreeNode root = new BinaryTreeNode("0-root");
+            root.Left = new BinaryTreeNode("1-left");
+            root.Right = new BinaryTreeNode("1-right");
+            root.Left.Left = new BinaryTreeNode("2-left-left");
+            root.Left.Right = new BinaryTreeNode("2-left-right");
+            root.Right.Left = new BinaryTreeNode("2-right-left");
+            root.Right.Right = new BinaryTreeNode("2-right-right");
+            root.Right.Right.Left = new BinaryTreeNode("3-right-right-left");
+            root.Right.Right.Left.Right = new BinaryTreeNode("4-right-right-left-right");
+            TreeTraversal traversal = new TreeTraversal();
+
+            // act
+            List<List<BinaryTreeNode>> paths = traversal.AllRootToLeafPaths(root);
+
+            // assert
+            Assert.AreEqual(4, paths.Count);
+
+            Assert.AreEqual('0', paths[0][0].Value[0]);
+            Assert.AreEqual('1', paths[0][1].Value[0]);
+            Assert.AreEqual('2', paths[0][2].Value[0]);
+
+            Assert.AreEqual('0', paths[1][0].Value[0]);
+            Assert.AreEqual('1', paths[1][1].Value[0]);
+            Assert.AreEqual('2', paths[1][2].Value[0]);
+
+            Assert.AreEqual('0', paths[2][0].Value[0]);
+            Assert.AreEqual('1', paths[2][1].Value[0]);
+            Assert.AreEqual('2', paths[2][2].Value[0]);
+
+            Assert.AreEqual('0', paths[3][0].Value[0]);
+            Assert.AreEqual('1', paths[3][1].Value[0]);
+            Assert.AreEqual('2', paths[3][2].Value[0]);
+            Assert.AreEqual('3', paths[3][3].Value[0]);
+            Assert.AreEqual('4', paths[3][4].Value[0]);
+        }
     }
 }

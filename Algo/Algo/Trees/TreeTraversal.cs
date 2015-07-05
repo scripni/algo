@@ -141,5 +141,42 @@ namespace Algo.Trees
                 return result;
             }
         }
+
+        public List<List<BinaryTreeNode>> AllRootToLeafPaths(BinaryTreeNode root)
+        {
+            List<BinaryTreeNode> list = new List<BinaryTreeNode>();
+            List<List<BinaryTreeNode>> results = new List<List<BinaryTreeNode>>();
+
+            AllRootToLeafPaths(root, list, results);
+
+            return results;
+        }
+
+        private void AllRootToLeafPaths(BinaryTreeNode node, List<BinaryTreeNode> current, List<List<BinaryTreeNode>> paths)
+        {
+            // add node
+            current.Add(node);
+
+            // leaf
+            if (node.Left == null && node.Right == null)
+            {
+                paths.Add(current.ToList());
+            }
+
+            // recurse left
+            if (node.Left != null)
+            {
+                AllRootToLeafPaths(node.Left, current, paths);
+            }
+
+            // recurse right
+            if (node.Right != null)
+            {
+                AllRootToLeafPaths(node.Right, current, paths);
+            }
+
+            // remove node
+            current.Remove(node);
+        }
     }
 }
