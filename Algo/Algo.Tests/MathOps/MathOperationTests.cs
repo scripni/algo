@@ -88,5 +88,56 @@ namespace Algo.Tests.MathOps
                 Assert.IsTrue(Math.Abs(actual * actual - expected * expected) < error);
             }
         }
+
+
+        [TestMethod]
+        public void AddBigNumbers_TwoNumbersNoCarry_ReturnsValue()
+        {
+            // arrange
+            int[] a = { 1, 2, 3 };
+            int[] b = { 2, 3, 4 };
+            int[] expected = { 0, 3, 5, 7 };
+            MathOperations m = new MathOperations();
+
+            // act
+            int[] actual = m.AddBigNumbers(a, b);
+
+            // assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
+
+
+        [TestMethod]
+        public void AddBigNumbers_TwoNumbersWithCarry_ReturnsValue()
+        {
+            // arrange
+            int[] a = { 1, 2, 3 };
+            int[] b = { 9, 3, 4 };
+            int[] expected = { 1, 0, 5, 7 };
+            MathOperations m = new MathOperations();
+
+            // act
+            int[] actual = m.AddBigNumbers(a, b);
+
+            // assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
+
+
+        [TestMethod]
+        public void AddBigNumbers_TwoNumbersDifferentSize_ReturnsValue()
+        {
+            // arrange
+            int[] a = { 1, 2, 3 };
+            int[] b = { 5, 9, 3, 4 };
+            int[] expected = { 0, 6, 0, 5, 7 };
+            MathOperations m = new MathOperations();
+
+            // act
+            int[] actual = m.AddBigNumbers(a, b);
+
+            // assert
+            Assert.IsTrue(expected.SequenceEqual(actual));
+        }
     }
 }
