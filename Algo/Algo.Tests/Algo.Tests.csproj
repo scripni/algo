@@ -69,6 +69,7 @@
     <Compile Include="Sorting\SorterTests.cs" />
     <Compile Include="Strings\PalindromeTests.cs" />
     <Compile Include="Strings\PoorMansRegexTests.cs" />
+    <Compile Include="Strings\StringManipulationTests.cs" />
     <Compile Include="TopCoder\Easy\AaagmnrsTests.cs" />
     <Compile Include="Trees\TreeTraversalTests.cs" />
   </ItemGroup>

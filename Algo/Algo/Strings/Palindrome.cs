@@ -6,14 +6,14 @@
         {
             for (int i = 0, j = s.Length - 1; i >= j; i++, j--)
             {
-                while (i < 'a' || i > 'Z')
+                while (i < 'A' || i > 'z')
                 {
                     i++;
                 }
 
                 char a = char.ToLowerInvariant(s[i]);
 
-                while (j < 'a' || j > 'Z')
+                while (j < 'A' || j > 'z')
                 {
                     j--;
                 }
