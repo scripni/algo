@@ -7,65 +7,45 @@ namespace Algo.Strings
     {
         public string Match(string input, string pattern)
         {
-            // build search stack
-            Stack<SearchItem> toSearch = new Stack<SearchItem>();
-            for (int i = pattern.Length - 1; i >= 0; i--)
-            {
-                SearchItem searchItem = new SearchItem();
-                if (pattern[i] == '*')
-                {
-                    i--;
-                    searchItem.MatchZeroOrMore = true;
-                }
-
-                searchItem.Character = pattern[i];
-                toSearch.Push(searchItem);
-            }
-
-            Stack<SearchItem> found = new Stack<SearchItem>();
+            // fooobar
+            // fo*.ar
             StringBuilder result = new StringBuilder();
-            int inputIndex = 0;
-
-            // search for pattern
-            while (toSearch.Count > 0 && inputIndex < input.Length)
+            int i = 0, j = 0;
+            while (i < input.Length && j < pattern.Length)
             {
-                for (int i = inputIndex; i < input.Length && toSearch.Count > 0; i++)
+                bool zeroOrMore = j < pattern.Length - 1 && pattern[j + 1] == '*';
+
+                if (zeroOrMore)
                 {
-                    SearchItem current = toSearch.Peek();
+                    while (i < input.Length && input[i] == pattern[j])
+                    {
+                        result.Append(input[i++]);
+                    }
 
-                    if (current.MatchZeroOrMore)
-                    {
-                        while (current.Character == input[i])
-                        {
-                            result.Append(input[i++]);
-                        }
-
-                        found.Push(toSearch.Pop());
-                    }
-                    else if (current.Character == '.' || current.Character == input[i])
-                    {
-                        result.Append(input[i]);
-                        found.Push(toSearch.Pop());
-                    }
-                    else
-                    {
-                        inputIndex++;
-                        while (found.Count > 0) toSearch.Push(found.Pop());
-                        result.Length = 0;
-                        break;
-                    }
+                    j += 2;
+                }
+                else if (input[i] == pattern[j] || pattern[j] == '.')
+                {
+                    result.Append(input[i++]);
+                    j++;
+                }
+                else
+                {
+                    i -= result.Length;
+                    i++;
+                    result.Length = 0;
+                    j = 0;
                 }
             }
 
-            if (toSearch.Count == 0) return result.ToString();
-            else return null;
+            if (j == pattern.Length)
+            {
+                return result.ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
-    }
-
-    public struct SearchItem
-    {
-        public char Character;
-
-        public bool MatchZeroOrMore;
     }
 }
