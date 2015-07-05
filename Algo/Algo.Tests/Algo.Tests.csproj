@@ -50,9 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Arrays\ArrayOperationTests.cs" />
     <Compile Include="Expressions\ExpressionEvaluatorTests.cs" />
     <Compile Include="Geometry\ClosestPairTests.cs" />
     <Compile Include="Geometry\PlaneCoordinateTests.cs" />
+    <Compile Include="Graphs\GraphSolverTests.cs" />
     <Compile Include="Heap\MaxHeapTests.cs" />
     <Compile Include="Lists\ListOperationTests.cs" />
     <Compile Include="MathOps\FibbonacciTests.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Strings\PoorMansRegexTests.cs" />
     <Compile Include="Strings\StringManipulationTests.cs" />
     <Compile Include="TopCoder\Easy\AaagmnrsTests.cs" />
+    <Compile Include="Trees\InOrderEnumeratorTests.cs" />
     <Compile Include="Trees\TreeTraversalTests.cs" />
   </ItemGroup>
   <ItemGroup>

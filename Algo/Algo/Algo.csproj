@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\ArrayOperations.cs" />
     <Compile Include="Expressions\ExpressionParser.cs" />
+    <Compile Include="Graphs\GraphSolver.cs" />
     <Compile Include="Heaps\MaxHeap.cs" />
     <Compile Include="Interviews\Top100Numbers.cs" />
     <Compile Include="Lists\ListOperations.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="TopCoder\Easy\AB.cs" />
     <Compile Include="TopCoder\Easy\BigBurger.cs" />
     <Compile Include="Trees\BinaryTreeNode.cs" />
+    <Compile Include="Trees\InOrderEnumerator.cs" />
     <Compile Include="Trees\TreeTraversal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

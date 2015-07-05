@@ -31,27 +31,29 @@ namespace Algo.Trees
 
         public IEnumerable<BinaryTreeNode> InOrder(BinaryTreeNode node)
         {
-            if (node == null) { return Enumerable.Empty<BinaryTreeNode>(); }
-            return InOrder(node.Left)
-                .Union(new[] { node })
-                .Union(InOrder(node.Right));
+            //if (node == null) { return Enumerable.Empty<BinaryTreeNode>(); }
+            //return InOrder(node.Left)
+            //    .Union(new[] { node })
+            //    .Union(InOrder(node.Right));
 
             // non-recursive
-            //Stack<BinaryTreeNode> nodes = new Stack<BinaryTreeNode>();
-            //BinaryTreeNode current = node;
+            Stack<BinaryTreeNode> nodes = new Stack<BinaryTreeNode>();
 
-            //while (nodes.Count > 0 || current != null)
-            //{
-            //    while (current != null)
-            //    {
-            //        nodes.Push(current);
-            //        current = current.Left;
-            //    }
+            BinaryTreeNode current = node;
 
-            //    yield return nodes.Peek();
+            while (current != null || nodes.Count > 0)
+            {
+                while (current != null)
+                {
+                    nodes.Push(current);
+                    current = current.Left;
+                }
 
-            //    current = nodes.Pop().Right;
-            //}
+                current = nodes.Pop();
+                yield return current;
+
+                current = current.Right;
+            }
         }
 
 

@@ -63,6 +63,11 @@ namespace Algo.MathOps
             result[0] = carry;
             return result;
         }
+
+        public int[] MultiplyBigNumbers(int[] a, int[] b)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public struct DivisionResult
