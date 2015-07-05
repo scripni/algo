@@ -131,5 +131,66 @@ namespace Algo.Tests.Trees
             Assert.AreEqual(levelFirst[7].Value, "1-right");
             Assert.AreEqual(levelFirst[8].Value, "0-root");
         }
+
+
+        [TestMethod]
+        public void SameFringe_IdenticalTrees_ReturnsTrue()
+        {
+            // arrange
+            BinaryTreeNode a = new BinaryTreeNode("0-root");
+            a.Left = new BinaryTreeNode("1-left");
+            a.Right = new BinaryTreeNode("1-right");
+
+            BinaryTreeNode b = new BinaryTreeNode("0-root2");
+            b.Left = new BinaryTreeNode("1-left");
+            b.Right = new BinaryTreeNode("1-right");
+
+            TreeTraversal traversal = new TreeTraversal();
+
+            // act
+            // assert
+            Assert.IsTrue(traversal.SameFringe(a, b));
+        }
+
+
+        [TestMethod]
+        public void SameFringe_IdenticalLeaves_ReturnsTrue()
+        {
+            // arrange
+            BinaryTreeNode a = new BinaryTreeNode("0-root");
+            a.Left = new BinaryTreeNode("1-left");
+            a.Right = new BinaryTreeNode("1-right");
+
+            BinaryTreeNode b = new BinaryTreeNode("0-root2");
+            b.Left = new BinaryTreeNode("1-leftdd");
+            b.Left.Left = new BinaryTreeNode("1-left");
+            b.Right = new BinaryTreeNode("1-right");
+
+            TreeTraversal traversal = new TreeTraversal();
+
+            // act
+            // assert
+            Assert.IsTrue(traversal.SameFringe(a, b));
+        }
+
+
+        [TestMethod]
+        public void SameFringe_DifferentLeaves_ReturnsFalse()
+        {
+            // arrange
+            BinaryTreeNode a = new BinaryTreeNode("0-root");
+            a.Left = new BinaryTreeNode("1-left");
+            a.Right = new BinaryTreeNode("1-right");
+
+            BinaryTreeNode b = new BinaryTreeNode("0-root2");
+            b.Left = new BinaryTreeNode("1-leftdd");
+            b.Right = new BinaryTreeNode("1-right");
+
+            TreeTraversal traversal = new TreeTraversal();
+
+            // act
+            // assert
+            Assert.IsFalse(traversal.SameFringe(a, b));
+        }
     }
 }

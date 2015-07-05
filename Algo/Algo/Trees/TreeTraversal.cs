@@ -111,5 +111,33 @@ namespace Algo.Trees
 
             return reverse;
         }
+
+        public bool SameFringe(BinaryTreeNode a, BinaryTreeNode b)
+        {
+            return Fringe(a).SequenceEqual(Fringe(b));
+        }
+
+        private IEnumerable<string> Fringe(BinaryTreeNode n)
+        {
+            if (n.Left == null && n.Right == null)
+            {
+                return new[] { n.Value };
+            }
+            else
+            {
+                IEnumerable<string> result = Enumerable.Empty<string>();
+                if (n.Left != null)
+                {
+                    result = result.Union(Fringe(n.Left));
+                }
+
+                if (n.Right != null)
+                {
+                    result = result.Union(Fringe(n.Right));
+                }
+
+                return result;
+            }
+        }
     }
 }
