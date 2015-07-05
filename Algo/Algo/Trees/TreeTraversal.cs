@@ -85,54 +85,31 @@ namespace Algo.Trees
 
         public IEnumerable<BinaryTreeNode> PostOrder(BinaryTreeNode node)
         {
-            if (node == null) { return Enumerable.Empty<BinaryTreeNode>(); }
+            //if (node == null) { return Enumerable.Empty<BinaryTreeNode>(); }
 
-            return PostOrder(node.Left).Union(PostOrder(node.Right)).Union(new[] { node });
+            //return PostOrder(node.Left).Union(PostOrder(node.Right)).Union(new[] { node });
 
             // non-recursive
-            //Stack<BinaryTreeNode> nodes = new Stack<BinaryTreeNode>();
-            //nodes.Push(node);
-            //BinaryTreeNode previous = null;
-            //while (nodes.Count > 0)
-            //{
-            //    BinaryTreeNode current = nodes.Peek();
+            Stack<BinaryTreeNode> nodes = new Stack<BinaryTreeNode>();
+            Stack<BinaryTreeNode> reverse = new Stack<BinaryTreeNode>();
+            nodes.Push(node);
+            while (nodes.Count > 0)
+            {
+                BinaryTreeNode current = nodes.Pop();
+                if (current.Left != null)
+                {
+                    nodes.Push(current.Left);
+                }
 
-            //    // travel down
-            //    if (previous == null || previous.Left == current || previous.Right == current)
-            //    {
-            //        if (current.Left != null)
-            //        {
-            //            nodes.Push(current.Left);
-            //        }
-            //        else if (current.Right != null)
-            //        {
-            //            nodes.Push(current.Right);
-            //        }
-            //        else
-            //        {
-            //            yield return nodes.Pop();
-            //        }
-            //    }
-            //    // travel up from the left
-            //    else if (current.Left == previous)
-            //    {
-            //        if (current.Right != null)
-            //        {
-            //            nodes.Push(current.Right);
-            //        }
-            //        else
-            //        {
-            //            yield return nodes.Pop();
-            //        }
-            //    }
-            //    // travel up from the right
-            //    else if (current.Right == previous)
-            //    {
-            //        yield return nodes.Pop();
-            //    }
+                if (current.Right != null)
+                {
+                    nodes.Push(current.Right);
+                }
 
-            //    previous = current;
-            //}
+                reverse.Push(current);
+            }
+
+            return reverse;
         }
     }
 }
