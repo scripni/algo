@@ -56,6 +56,7 @@
     <Compile Include="Geometry\PlaneCoordinateTests.cs" />
     <Compile Include="Graphs\GraphNavigatorTests.cs" />
     <Compile Include="Graphs\GraphSolverTests.cs" />
+    <Compile Include="Graphs\MergeContactsTests.cs" />
     <Compile Include="Heap\MaxHeapTests.cs" />
     <Compile Include="Lists\ListOperationTests.cs" />
     <Compile Include="MathOps\FibbonacciTests.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="MatrixOperations\SquareEvenMatrixTests.cs" />
     <Compile Include="MatrixOperations\StrassenMatrixMultiplicationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\FindItemTests.cs" />
     <Compile Include="Sets\PermutationTests.cs" />
     <Compile Include="Sets\PhoneDigitTests.cs" />
     <Compile Include="Sorting\HeapSortTests.cs" />

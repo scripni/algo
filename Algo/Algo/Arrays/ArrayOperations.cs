@@ -27,6 +27,7 @@ namespace Algo.Arrays
 
             return null;
         }
+
         public void SortByCategory(int[] a)
         {
             int head = 0, tail = a.Length - 1, current = 0;

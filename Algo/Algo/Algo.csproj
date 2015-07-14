@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Arrays\ArrayOperations.cs" />
     <Compile Include="Expressions\ExpressionParser.cs" />
+    <Compile Include="Graphs\MergeContacts.cs" />
     <Compile Include="Graphs\GraphNavigator.cs" />
     <Compile Include="Graphs\GraphNode.cs" />
     <Compile Include="Graphs\GraphSolver.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Lists\ListOperations.cs" />
     <Compile Include="MathOps\Fibbonacci.cs" />
     <Compile Include="MathOps\MathOperations.cs" />
+    <Compile Include="Search\FindItem.cs" />
     <Compile Include="Sets\Permutations.cs" />
     <Compile Include="Sets\PhoneDigits.cs" />
     <Compile Include="Sorting\HeapSort.cs" />
@@ -70,6 +72,8 @@
     <Compile Include="Sorting\Sorter.cs" />
     <Compile Include="TopCoder\Easy\AB.cs" />
     <Compile Include="TopCoder\Easy\BigBurger.cs" />
+    <Compile Include="TopCoder\Medium\BrokenElevator.cs" />
+    <Compile Include="TopCoder\Medium\ErdosNumbers.cs" />
     <Compile Include="Trees\BinaryTreeNode.cs" />
     <Compile Include="Trees\InOrderEnumerator.cs" />
     <Compile Include="Trees\TreeTraversal.cs" />
