@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Arrays\ArrayOperations.cs" />
     <Compile Include="Expressions\ExpressionParser.cs" />
+    <Compile Include="Graphs\DijkstraShortestPath.cs" />
     <Compile Include="Graphs\MergeContacts.cs" />
     <Compile Include="Graphs\GraphNavigator.cs" />
     <Compile Include="Graphs\GraphNode.cs" />
