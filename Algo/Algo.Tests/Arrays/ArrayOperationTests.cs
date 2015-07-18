@@ -80,5 +80,22 @@ namespace Algo.Tests.Arrays
 
             Assert.AreEqual(2, c);
         }
+
+
+        [TestMethod]
+        public void KadaneLargestSubarray_ValidValue_ReturnsExpected()
+        {
+            // arrange
+            int[] value = { -1, -2, 3, 4, -5, 6 };
+            ArrayOperations ops = new ArrayOperations();
+
+            // act
+            SubarraySum actual = ops.KadaneLargestSubarray(value);
+
+            // assert
+            Assert.AreEqual(2, actual.From);
+            Assert.AreEqual(5, actual.To);
+            Assert.AreEqual(8, actual.Sum);
+        }
     }
 }

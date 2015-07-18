@@ -4,6 +4,33 @@ namespace Algo.Arrays
 {
     public class ArrayOperations
     {
+        public SubarraySum KadaneLargestSubarray(int[] a)
+        {
+            SubarraySum max = new SubarraySum(int.MinValue, int.MinValue, int.MinValue);
+            SubarraySum currentMax = new SubarraySum(int.MinValue, int.MinValue, int.MinValue);
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (currentMax.Sum < 0)
+                {
+                    currentMax = new SubarraySum(i, i, a[i]);
+                }
+                else
+                {
+                    currentMax.To = i;
+                    currentMax.Sum += a[i];
+                }
+
+                if (max.Sum < currentMax.Sum)
+                {
+                    max = currentMax;
+                }
+            }
+
+            return max;
+        }
+
+
         public int[] FindZeroSum(int[] input)
         {
             Dictionary<int, int> numbers = new Dictionary<int, int>();
@@ -54,6 +81,20 @@ namespace Algo.Arrays
         private int Category(int x)
         {
             return x % 3;
+        }
+    }
+
+    public struct SubarraySum
+    {
+        public int From;
+        public int To;
+        public int Sum;
+
+        public SubarraySum(int from, int to, int sum)
+        {
+            From = from;
+            To = to;
+            Sum = sum;
         }
     }
 }
