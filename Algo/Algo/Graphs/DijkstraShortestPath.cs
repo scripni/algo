@@ -2,22 +2,41 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algo.Graphs
 {
     public class DijkstraShortestPath
     {
+        /// <summary>
+        /// Graph vertices.
+        /// </summary>
         private readonly HashSet<int> m_v;
+
+
+        /// <summary>
+        /// Graph edges.
+        /// </summary>
         private readonly Dictionary<int, Dictionary<int, double>> m_e;
 
+
+        /// <summary>
+        /// Creates a new instance.
+        /// </summary>
+        /// <param name="v">Graph vertices.</param>
+        /// <param name="e">Graph edges.</param>
         public DijkstraShortestPath(HashSet<int> v, Dictionary<int, Dictionary<int, double>> e)
         {
             m_v = v;
             m_e = e;
         }
 
+
+        /// <summary>
+        /// Computes the shortest path between two nodes.
+        /// </summary>
+        /// <param name="from">Source node.</param>
+        /// <param name="to">Destination node.</param>
+        /// <returns>Path letngth.</returns>
         public double ShortestPath(int from, int to)
         {
             if (!m_v.Contains(from))
